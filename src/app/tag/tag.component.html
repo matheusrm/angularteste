@@ -1,0 +1,16 @@
+<div class="container">
+    <div class='row'>
+
+        <div class='col-lg-3' *ngFor="let quadrinho of quadrinhos;  let i = index " style="box-align: center">
+            <div *ngIf="quadrinho.tipo=='ecleticos'" [routerLink]="['/ecleticos',quadrinhosid[i]]"
+                routerLinkActive="router-link-active">
+                <app-tag-item [capa]="quadrinho.paginas[0] " [titulo]="quadrinho.nome"></app-tag-item>
+            </div>
+            <div *ngIf="quadrinho.tipo=='seriados'" [routerLink]="['/seriados',quadrinhosid[i]]"
+                routerLinkActive="router-link-active">
+                <app-tag-item [capa]="quadrinho.paginas[0] " [titulo]="quadrinho.nome"></app-tag-item>
+            </div>
+        </div>
+    </div>
+
+</div>

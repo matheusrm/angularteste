@@ -1,0 +1,92 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ 
+  router: string;
+  nameValue: string;
+  placeValue: string;
+  variavel: number = 0;
+  //Data object for listing items
+  tela : any[] = [];
+  telaid: any[] = [];
+  //Save first document in snapshot of items received
+  firstInResponse: any = [];
+ 
+  //Save last document in snapshot of items received
+  lastInResponse: any = [];
+ 
+  //Keep the array of first document of previous pages
+  prev_strt_at: any = [];
+ 
+  //Maintain the count of clicks on Next Prev button
+  pagination_clicked_count = 0;
+ 
+  //Disable next and prev buttons
+  disable_next: boolean = false;
+  disable_prev: boolean = false;
+ 
+  constructor(
+    public _router: Router,
+    private firestore: AngularFirestore
+  ) {
+    
+  }
+ 
+  ngOnInit() {
+   this.loadItems();
+  }
+ 
+ 
+  loadItems() {
+    this.firestore.collection('tela', ref => ref
+      .limit(1)
+    ).snapshotChanges()
+      .subscribe(response => {
+        if (!response.length) {
+          console.log("No Data Available");
+          return false;
+        }
+        this.firstInResponse = response[0].payload.doc;
+        this.lastInResponse = response[response.length - 1].payload.doc;
+ 
+        this.tela = [];
+        this.telaid=[];
+        for (let item of response) {
+          this.tela.push(item.payload.doc.data());
+          this.telaid.push(item.payload.doc.id);
+        }
+ 
+        //Initialize values
+        this.prev_strt_at = [];
+        this.pagination_clicked_count = 0;
+        this.disable_next = false;
+        this.disable_prev = false;
+ 
+        //Push first item to use for Previous action
+        this.push_prev_startAt(this.firstInResponse);
+      }, error => {
+      });
+  }
+   //Add document
+ push_prev_startAt(prev_first_doc) {
+  this.prev_strt_at.push(prev_first_doc);
+}
+
+//Remove not required document 
+pop_prev_startAt(prev_first_doc) {
+  this.prev_strt_at.forEach(element => {
+    if (prev_first_doc.data().id == element.data().id) {
+      element = null;
+    }
+  });
+}
+}
+

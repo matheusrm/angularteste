@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Ola {{profile.name}}</h3>
+        </div>
+        <div class="col-lg-6">
+            <h4>Email</h4><p>{{profile.email}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <button expand="block" (click)="remover()" *ngIf="!this.delete">Remover</button>
+            <button expand="block" (click)="removerConfirmar()" *ngIf="this.delete">Confirmar</button>
+        </div>
+        <div class="col-lg-6" *ngIf="this.delete">
+            <p>Selecione quais quer remover e depois clique em confirmar</p>
+        </div>
+    </div>
+    <div class='row' *ngIf="usuario && !this.delete">
+        <div class='col-lg-3' *ngFor="let quadrinho of usuario.fav|slice:1;  let i = index " style="box-align: center">
+            <div *ngIf="quadrinho.tipo=='ecleticos'" [routerLink]="['/ecleticos',quadrinho.id]"
+                routerLinkActive="router-link-active">
+                <app-tag-item [capa]="quadrinho.url" [titulo]="quadrinho.nome"></app-tag-item>
+            </div>
+            <div *ngIf="quadrinho.tipo=='seriados'" [routerLink]="['/seriados',quadrinho.id]"
+                routerLinkActive="router-link-active">
+                <app-tag-item [capa]="quadrinho.url " [titulo]="quadrinho.nome"></app-tag-item>
+            </div>
+        </div>
+    </div>
+    <div class='row' *ngIf="usuario && this.delete">
+        <div class='col-lg-3' *ngFor="let quadrinho of usuario.fav|slice:1;  let i = index " style="box-align: center">
+            <input type="checkbox" *ngIf="this.delete" (click)="addEle(i)">
+            <img src={{quadrinho.url}} class="img-fluid">
+
+        </div>
+    </div>
+
+
+</div>

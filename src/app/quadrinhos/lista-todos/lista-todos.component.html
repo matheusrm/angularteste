@@ -1,0 +1,12 @@
+<div class="row">
+  <h1>ÚLTIMOS LANÇAMENTOS</h1>
+</div>
+<div class="row">
+  <div class="col-xs-4" *ngFor="let quadrinho of quadrinhos; let i=index" align="center">
+    <div *ngIf="quadrinho.tipo == 'ecleticos'; else elseBlock"><img src="{{quadrinho.paginas[0]}}" width=240 [routerLink]="['/ecleticos', quadrinhosid[i]]" routerLinkActive="router-link-active">
+    </div>
+    <ng-template #elseBlock><img src="{{quadrinho.paginas[0]}}" width=240 [routerLink]="['/seriados', quadrinhosid[i]]" routerLinkActive="router-link-active">
+    </ng-template>
+    
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<html>
+<div *ngIf="_router.url == '/home'">
+  <app-header-dois></app-header-dois>
+  <div class="row">
+    <div class="col-2" style="background-color: black"></div>
+    <div class="col-8" style="background-color: black">
+      <a href={{tela[0].link}}>
+        <img src={{tela[0].capa}} class="img-fluid" styles="width:'100%'">
+      </a>
+    </div>
+
+    <div class="col-2" style="background-color: black"></div>
+  </div>
+</div>
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-2" style="background-color: black"></div>
+  <div class="col-8" style="background-color: white">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="col-2" style="background-color: black"></div>
+</div>
+<app-footer></app-footer>
+</html>

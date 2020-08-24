@@ -1,0 +1,43 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Nome da Serie</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box1 (keyup)="onSerie(box1.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">URL do Firebase storage da capa</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box2 (keyup)="onCapa(box2.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Descrição</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box5 (keyup)="onDescricao(box5.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Dia</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box6 (keyup)="onDia(box6.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Mes</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box7 (keyup)="onMes(box7.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Ano</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box8 (keyup)="onAno(box8.value)">
+    </div>
+    <button (click)="addItem()">adicionar </button>

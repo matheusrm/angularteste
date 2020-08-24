@@ -1,0 +1,82 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box1 (keyup)="onNome(box1.value)">
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Numero do quadrinho de Hoje</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+  #box2 (keyup)="onNumero(box2.value)">
+</div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="ecleticos"
+    #box23 (click)="onTipo(box23.value)" >
+    <label class="form-check-label" for="inlineRadio1">Ecleticos</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="seriados"
+    #box22 (click)="onTipo(box22.value)">
+    <label class="form-check-label" for="inlineRadio2">Seriados</label>
+  </div>
+  <div *ngIf="seriado">
+      <button *ngFor="let item of seriados" type="button" class="btn btn-primary" (click)="onSerie(item.serie)">{{item.serie}}</button>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Capitulo</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box4 (keyup)="onCapitulo(box4.value)">
+</div>
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Descrição</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box5 (keyup)="onDescricao(box5.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Dia</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box6 (keyup)="onDia(box6.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Mes</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box7 (keyup)="onMes(box7.value)">
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Ano</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+    #box8 (keyup)="onAno(box8.value)">
+    </div>
+    <p>Adicionar Tag</p>
+    <input #newHero>
+    <button (click)="addTag(newHero.value)"(blur)="newHero.value='' ">Add</button>
+<ul><li *ngFor="let hero of tags, let j= index"><p>{{hero}}</p>
+  <button type="button" class="close" aria-label="Close" (click)="removerTag(j)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</li></ul>
+<p>Adiconar Paginas(URL de download firebase storage )</p>
+<div>
+<input #pagina>
+<button (click)="addPagina(pagina.value)" (blur)="pagina.value='' ">Add</button>
+<ul><li *ngFor="let pagina of paginas, let i=index"><p>{{pagina}}</p>
+  <button type="button" class="close" aria-label="Close" (click)="removerPagina(i)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</li></ul>
+</div>
+<button (click)="addItem()">adicionar </button>
+<h1>{{enviado}} </h1>

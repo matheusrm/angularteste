@@ -1,0 +1,17 @@
+<div class="blog-post"  *ngIf= "blogDoc.blog| async as blog">
+  <h1 class="blog-post-title">{{blog.titulo}}</h1>
+  <h2 class="blog-post-meta">{{blog.subtitulo}}</h2>
+  <img [src]="blog.capa" class="img-fluid">
+  <div class="row">
+    <div class="col-lg-12">Tags
+      <div class="horizontal">
+        <p *ngFor="let tag of blog.tags" [routerLink]="['/tag',tag]" routerLinkActive="router-link-active" 
+        style="color:blue; text-decoration: underline;
+            cursor: pointer;
+            margin-right: 0.5em;">{{tag}},</p>
+      </div>
+    </div>
+  </div>
+
+  <div [innerHTML]="blog.texto" ></div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-up" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" />
+            </svg>
+        </div>
+        <div class="col-lg-9">
+            <button type="button" class="btn btn-light" (click)="antigoNovo()">
+                Antigo para o mais novo
+            </button>
+            <button type="button" class="btn btn-light" (click)="novoAntigo()">
+                Novo para o mais antig
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <input [(ngModel)]="search">
+            <button type="button" class="btn btn-light" (click)="pesquisarTitulo()">
+                Search
+            </button>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-3' *ngFor="let quadrinho of quadrinhos;  let i = index " style="box-align: center"
+            [routerLink]="['/ecleticos',quadrinhosid[i]]" routerLinkActive="router-link-active">
+            <app-ecleticos-item [capa]="quadrinho.paginas[0] " [titulo]="quadrinho.nome"></app-ecleticos-item>
+        </div>
+    </div>
+
+</div>
+<button type="button" class="btn btn-light btn-lg btn-block" *ngIf="!this.disable_next"
+    (click)="nextPage()">Mais</button>

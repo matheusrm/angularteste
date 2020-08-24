@@ -1,0 +1,67 @@
+<div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">URL Capa</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box1 (keyup)="onCapa(box1.value)">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Numero do post de Hoje</span>
+      </div>
+      <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+      #box12 (keyup)="onNumero(box12.value)">
+  </div>
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box2 (keyup)="onTitulo(box2.value)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Subtitulo</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box3 (keyup)="onSubtitulo(box3.value)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Texto</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box4 (keyup)="onTexto(box4.value)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Dia</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box5 (keyup)="onDia(box5.value)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Mes</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box6 (keyup)="onMes(box6.value)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Ano</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+        #box7 (keyup)="onAno(box7.value)">
+        </div>
+      <input #newHero>
+
+    <button (click)="addTag(newHero.value)"(blur)="newHero.value='' ">Add</button>
+
+    <ul><li *ngFor="let hero of tags, let j= index"><p>{{hero}}</p>
+      <button type="button" class="close" aria-label="Close" (click)="removerTag(j)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li></ul>
+
+    <button (click)="addItem()">adicionar </button>

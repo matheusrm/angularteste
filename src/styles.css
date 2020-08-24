@@ -1,0 +1,31 @@
+p {
+    font-family: "OldSansBlack",  Sans-serif;
+  }
+h2 {
+    font-family: "OldSansBlack",  Sans-serif;
+  }
+h1 {
+    font-family: "OldSansBlack",  Sans-serif;
+  }
+h3 {
+    font-family: "OldSansBlack", Sans-serif;
+  }
+ h4 {
+    font-family: "OldSansBlack", Sans-serif;
+  }
+
+  img{
+  cursor: pointer;
+}
+.viewer-backdrop{
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.btn-light{
+  background-color: #b30a35;
+  color:white;
+}
+.btn-light:hover, .btn-light:focus, .btn-light:active {
+  color: #fff;
+  background-color: #6B061F;
+}

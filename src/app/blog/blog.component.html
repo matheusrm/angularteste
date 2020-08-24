@@ -1,0 +1,14 @@
+<div  *ngFor="let blog of blogs; let i=index">
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{blog.tags}}</strong>
+          <h3 class="mb-0">{{blog.titulo}}</h3>
+          <div class="mb-1 text-muted">{{blog.time}}</div>
+          <p class="card-text mb-auto">{{blog.texto}}</p>
+          <a href="#" class="stretched-link" [routerLink]="['/blog', blogid[i]]" routerLinkActive="router-link-active">Continue lendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="{{blog.capa}}" class="img-fluid" width="250">
+          </div>
+      </div>
+    </div>

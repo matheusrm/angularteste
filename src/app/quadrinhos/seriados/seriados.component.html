@@ -1,0 +1,10 @@
+<div class="container">
+        <div class ='row'>
+            
+            <div class='col-lg-3' *ngFor="let seriado of quadrinhos" style="box-align: center"  
+             [routerLink]="['/lista',seriado.serie]" routerLinkActive="router-link-active">
+                <app-seriados-item [capa]="seriado.capa"[titulo]="seriado.serie"></app-seriados-item>
+            </div>
+            </div>
+        
+        </div>

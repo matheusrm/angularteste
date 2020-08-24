@@ -1,0 +1,9 @@
+<div class="row">
+  <h1>ÚLTIMOS POSTS</h1>
+</div>
+<div class="row">
+    <div class="col-lg-4" *ngFor="let blog of blogs; let i = index" style="box-align: center">
+      <img src="{{blog.capa}}" [routerLink]="['/blog',blogsid[i] ]" routerLinkActive="router-link-active">
+      <p>{{blog.titulo}}</p>
+    </div>
+  </div>
